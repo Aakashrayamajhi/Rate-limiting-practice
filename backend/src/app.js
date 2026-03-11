@@ -4,11 +4,13 @@ import ratelimiter from "./config/fixed_window_counter.config.js"
 
 const app = express()
 
-//middlewares
 app.use(cors({
-    origin : `http://localhost:3000`
-}))
+    origin: "http://localhost:5173",  
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true                  
+}));
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 app.use(ratelimiter)
 
 
