@@ -16,5 +16,11 @@ app.get("/",(req , res)=>{
     res.send("hello")
 })
 
+//handling Routes 
+
+import userRouter from "./modules/user/user.route.js"
+
+app.use("/api/v1/user", userRouter)
+
 
 export {app}
